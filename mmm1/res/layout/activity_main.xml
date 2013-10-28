@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <ProgressBar 
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:max="10"
+        android:padding="4dip"/>
+    
+    <EditText 
+        android:id="@+id/userId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/edt_userId" >
+        <requestFocus />
+    </EditText>   
+    
+    <EditText 
+        android:id="@+id/passwd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="@string/edt_passwd" />
+    
+    <ListView
+        android:id="@+id/country_list"
+        android:layout_width="match_parent"
+        android:layout_height="168dp" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_test1" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startProgress"
+        android:text="@string/pgr_start" />
+    
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startUrlTest"
+        android:text="@string/button3" />    
+
+</LinearLayout>
