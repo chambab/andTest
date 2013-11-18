@@ -4,9 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="8"/>
-    <uses-permission android:name="android.permission.INTERNET" /> 
+    <uses-sdk android:minSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -18,26 +18,63 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.mymuseum.mmm1.activity.UrlTestActivity"
-            android:label="@string/title_activity_url_test" 
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/title_activity_url_test" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoanCalculatorActivity"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name="com.mymuseum.mmm1.activity.LoanCalculatorActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mymuseum.mmm1.activity.ListMyStoryActivity"
+            android:exported="false"
+            android:label="@string/title_activity_list_my_story" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mymuseum.mmm1.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.mymuseum.mmm1.ListStoryActivity"
+            android:exported="false"
+            android:label="@string/title_activity_list_story" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mymuseum.mmm1.activity.ListMyMuseumActivity"
+            android:exported="false"
+            android:label="@string/title_activity_list_my_museum" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>            
         </activity>
     </application>
 

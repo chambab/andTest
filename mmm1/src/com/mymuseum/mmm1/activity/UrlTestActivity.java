@@ -1,6 +1,7 @@
 package com.mymuseum.mmm1.activity;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
@@ -11,7 +12,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -33,6 +36,7 @@ public class UrlTestActivity extends Activity {
 
 	private EditText urlText;
 	private TextView txtView;
+	private ListView listView;
 	
 	
 	@Override
@@ -40,7 +44,9 @@ public class UrlTestActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_url_test);
 		urlText = (EditText) findViewById(R.id.urlText);
-		urlText.setText("http://m.mymuseum.co.kr/mm/1/msg/chambab/1/MyMuseumMsg.json");
+		listView = (ListView) findViewById(R.id.listView1);
+		urlText.setText("http://m.mymuseum.co.kr/mm/1/msg/hjaemoon/MyMuseumList.json");
+		
 	}
 
 	@Override
@@ -59,28 +65,39 @@ public class UrlTestActivity extends Activity {
 		urlText = (EditText) findViewById(R.id.urlText);
 		txtView = (TextView) findViewById(R.id.txtview);
 		
-		String urlstr = urlText.getText().toString();
+		String urls = urlText.getText().toString();
 		String jsonString = null;
 		//JSONObject inputsJson = new JSONObject(inputs.getInputMap());
 		try {
-			jsonString = HttpUtils.urlContent(urlstr);
+			jsonString = HttpUtils.urlContent(urls);
 			//String jsonString = HttpUtils.urlContentPost(urlstr, "loanInputs", inputsJson.toString());
 			//JSONObject jsonResult = new JSONObject(jsonString);
 			
-			
 			List<Museum> listMuseum = null;
-			
 			ObjectMapper mapper = new ObjectMapper();
-			
-			
-			
 			listMuseum = mapper.readValue(jsonString, new TypeReference<List<Museum>>(){});
 			
+			
+			List<String> listStr = new ArrayList<String>();
+			
+			
 			for(Museum museum : listMuseum) {
-				museum.getUserNm();
+				listStr.add(museum.getUserId());
 			}
 			
-			txtView.setText(jsonString);
+			
+			//txtView.setText(jsonString);
+			
+			//	TODO
+			//String[] values = new String[] {"Android", "iPhone", "Window",
+			//					"Blackberry","WebOs","Ubuntu"};
+			//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+			//		android.R.layout.simple_list_item_1, values);
+			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_list_item_1, listStr);
+			
+			listView.setAdapter(adapter);
+			
 		
 		} catch (ClientProtocolException e) {
 			txtView.setText("Illegal base URL");

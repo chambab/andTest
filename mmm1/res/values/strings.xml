@@ -12,7 +12,10 @@
     <string name="button3">UrlTest</string>
     <string name="title_activity_url_test">UrlTestActivity</string>
     <string name="txtview_result"></string>
-
+    <string name="logo">Logo</string>
+    <string name="mystory">MyStory</string>
+    <string name="mymuseum">MyMuseum</string>
+    <string name="btnmuseum">Museum</string>
     <string name="nist_button_text">Show NIST Time</string>
     <string name="ftp_server_prompt">FTP Server:&#160;</string>
     <string name="ftp_button_text">Show Welcome Message</string>
@@ -26,5 +29,9 @@
     <string name="loan_period_prompt">Months:&#160;&#160;</string>
     <string name="loan_button_text">Calculate Payments</string>
     <string name="monthly_payment_prompt">Monthly payment:&#160;&#160;</string>
-    <string name="total_payments_prompt">Total payments:&#160;&#160;</string>    
+    <string name="total_payments_prompt">Total payments:&#160;&#160;</string>
+    <string name="title_activity_list_my_story">ListMyStoryActivity</string>
+    <string name="title_activity_list_story">ListStoryActivity</string>
+    <string name="title_activity_list_my_museum">ListMyMuseumActivity</string>
+
 </resources>

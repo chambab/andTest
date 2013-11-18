@@ -37,7 +37,7 @@
     <ListView
         android:id="@+id/country_list"
         android:layout_width="match_parent"
-        android:layout_height="168dp" >
+        android:layout_height="104dp" >
 
     </ListView>
 
@@ -53,12 +53,32 @@
         android:layout_height="wrap_content"
         android:onClick="startProgress"
         android:text="@string/pgr_start" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp" >
+        
+    	<Button
+        	android:id="@+id/button3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:onClick="startUrlTest"
+        	android:text="@string/button3" />
     
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="startUrlTest"
-        android:text="@string/button3" />    
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="listMyStory"
+            android:text="@string/mystory" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="listMyMuseum"
+            android:text="@string/mymuseum" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.mymuseum.mmm1;
 
 
+import com.mymuseum.mmm1.activity.ListMyMuseumActivity;
+import com.mymuseum.mmm1.activity.ListMyStoryActivity;
 import com.mymuseum.mmm1.activity.LoanCalculatorActivity;
 import com.mymuseum.mmm1.activity.UrlTestActivity;
 import com.mymuseum.mmm1.utils.ActivityUtils;
@@ -81,6 +83,23 @@ public class MainActivity extends Activity {
 	public void startUrlTest(View clickedButton) {
 		ActivityUtils.goToActivity(this, UrlTestActivity.class);
 		//ActivityUtils.goToActivity(this, LoanCalculatorActivity.class);
+	}
+
+	/**
+	 * List MyStory from museum
+	 * @param clickedButton
+	 */
+	public void listMyStory(View clickedButton) {
+		
+		ActivityUtils.goToActivity(this, ListMyStoryActivity.class);
+	}
+	/**
+	 * 
+	 * @param clickedButton
+	 */
+	public void listMyMuseum(View clickedButton) {
+		
+		ActivityUtils.goToActivity(this, ListMyMuseumActivity.class);
 	}
 	
 	class Task implements Runnable {
