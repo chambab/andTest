@@ -13,6 +13,7 @@ public class LoanInputs {
         mInputMap.put("months", months);
     }
 
+    
     public Map<String,String> getInputMap() {
         return(mInputMap);
     }
