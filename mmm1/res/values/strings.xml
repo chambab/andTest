@@ -33,5 +33,6 @@
     <string name="title_activity_list_my_story">ListMyStoryActivity</string>
     <string name="title_activity_list_story">ListStoryActivity</string>
     <string name="title_activity_list_my_museum">ListMyMuseumActivity</string>
+    <string name="file_key">com.mm.mymuseum.user.security</string>
 
 </resources>

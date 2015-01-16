@@ -8,7 +8,10 @@ import com.mymuseum.mmm1.activity.UrlTestActivity;
 import com.mymuseum.mmm1.utils.ActivityUtils;
 
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,13 +28,30 @@ public class MainActivity extends Activity {
 	private Button btnProduct;
 	private EditText txtId, txtPw;
 	private ProgressBar bar;
+	private boolean bAccessSave = false;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
 		
+		
+		Context context = this;
+		SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.file_key), Context.MODE_PRIVATE);
+		String strId = sharedPref.getString("accessKey", null);
+		String strPw = sharedPref.getString("securityKey", null);
+		
+		if(strId != null) {
+			bAccessSave = true;
+			txtId = (EditText) findViewById(R.id.userId);
+			txtPw = (EditText) findViewById(R.id.passwd);
+			
+			txtId.setText(strId);
+			txtPw.setText(strPw);
+			
+		}
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_listview,
 				countryArray);
 		
@@ -41,7 +61,7 @@ public class MainActivity extends Activity {
 		
 		ListView listView = (ListView)findViewById(R.id.country_list);
 		listView.setAdapter(adapter);
-		this.addListenerOnButton();
+		//this.addListenerOnButton();
 		
 	}
 
@@ -55,23 +75,23 @@ public class MainActivity extends Activity {
 	/**
 	 * Button Listener
 	 */
-	private void addListenerOnButton() {
-		btnProduct = (Button) findViewById(R.id.button1);
-		txtId = (EditText) findViewById(R.id.userId);
-		txtPw = (EditText) findViewById(R.id.passwd);
-		
-		
-		btnProduct.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-			String strId =	txtId.getText().toString();
-			String strPw = txtPw.getText().toString();
-			Toast.makeText(getApplicationContext(), strId + " " + strPw,Toast.LENGTH_LONG).show();	
-			}
-		});
-	}
+//	private void addListenerOnButton() {
+//		btnProduct = (Button) findViewById(R.id.button1);
+//		txtId = (EditText) findViewById(R.id.userId);
+//		txtPw = (EditText) findViewById(R.id.passwd);
+//		
+//		
+//		btnProduct.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View arg0) {
+//				// TODO Auto-generated method stub
+//			String strId =	txtId.getText().toString();
+//			String strPw = txtPw.getText().toString();
+//			Toast.makeText(getApplicationContext(), strId + " " + strPw,Toast.LENGTH_LONG).show();	
+//			}
+//		});
+//	}
 	
 	public void startProgress(View view) {
 		bar.setProgress(0);
@@ -84,6 +104,25 @@ public class MainActivity extends Activity {
 		ActivityUtils.goToActivity(this, UrlTestActivity.class);
 		//ActivityUtils.goToActivity(this, LoanCalculatorActivity.class);
 	}
+	@SuppressLint("CommitPrefEdits")
+	public void login(View clickedButton) {
+		
+		if(!bAccessSave) {
+			EditText txtId, txtPw;
+			txtId = (EditText) findViewById(R.id.userId);
+			txtPw = (EditText) findViewById(R.id.passwd);
+			
+			String strId =	txtId.getText().toString();
+			String strPw = txtPw.getText().toString();
+			
+			Context context = this;
+			SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.file_key), Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = sharedPref.edit();
+			editor.putString("accessKey", strId);
+			editor.putString("securityKey", strPw);
+			//editor.commit();
+		}
+	}	
 
 	/**
 	 * List MyStory from museum

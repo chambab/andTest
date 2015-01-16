@@ -74,7 +74,18 @@
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>            
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.mymuseum.mmm1.activity.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
